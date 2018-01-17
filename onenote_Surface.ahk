@@ -6,5 +6,15 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #IfWinActive ahk_exe ONENOTE.EXE
 XButton1::
 XButton2::
-MsgBox Escape!!!!
+
+timeWait := 1000
+textToAdd := ">>"
+slideHeight := 1500
+
+ZoomElement(1500, 1500)
 return
+
+ZoomElement(X, Y) {
+	Click Right %X%, %Y%
+	SendInput, {Down 5}{Enter}
+}
