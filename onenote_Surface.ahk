@@ -9,7 +9,7 @@ timeWaitShort := 80
 textToAdd := ">>"
 slideHeight := 1500
 leftMargin := 200
-mode = 0	;0 for marking, 1 for reviewing/browsing
+mode = 1	;0 for marking, 1 for reviewing/browsing
 
 ;custom menu, other components can be found at the bottom
 Menu, tray, nostandard
@@ -47,6 +47,9 @@ return
 XButton2::
 	ZoomPrevious(leftMargin, 500)
 return
+
+^d::
+Escape::
 XButton1::
 	if mode = 0
 	{
@@ -68,11 +71,13 @@ return
 
 ZoomPrevious(X, Y) {
 	SendInput {WheelUp 4}
+	Sleep, timeWaitShort
 	ZoomElement(X, Y)
 }
 
 ZoomNext(X, Y) {
-	SendInput {WheelDown 3}
+	SendInput {WheelDown 3}	
+	Sleep, timeWaitShort
 	ZoomElement(X, Y)
 }
 
@@ -80,6 +85,7 @@ ZoomElement(X, Y) {
 	Click Right %X%, %Y%
 	Sleep, timeWaitShort
 	SendInput, {Down 5}{Enter}
+	Sleep, timeWaitShort
 }
 
 
