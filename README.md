@@ -4,3 +4,4 @@ It is implemented for the resolution of a surface pro 4 and having onenote in fu
 
 Adaption requires changing the values of the variables and values indicating a location for the pointer to click on.
 
+I will create a more detailed description upon request, just send me a message.
